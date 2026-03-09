@@ -1,0 +1,46 @@
+From 2f2e9be2990aefc9128f3e6cd4712faddeb4a5c4 Mon Sep 17 00:00:00 2001
+From: S8 Builder <build@s8.local>
+Date: Mon, 9 Mar 2026 10:07:01 +0000
+Subject: [PATCH] libbt-vendor: add dreamqltechn vnd config and disable LPM
+
+- Add include/vnd_dreamqltechn.txt with ttyHS0 UART port
+- Set LPM_SLEEP_MODE=0 in Android.mk to fix Samsung bluesleep
+  uport=null crash on SM-G950U
+- Add -DLPM_SLEEP_MODE=0 to LOCAL_CFLAGS
+
+Change-Id: I168b79619bf08be163b31775ea0a16f2b9f06543
+---
+ Android.mk                   | 1 +
+ include/vnd_dreamqltechn.txt | 8 ++++++++
+ 2 files changed, 9 insertions(+)
+ create mode 100644 include/vnd_dreamqltechn.txt
+
+diff --git a/Android.mk b/Android.mk
+index 170d0e3..ca7654c 100644
+--- a/Android.mk
++++ b/Android.mk
+@@ -25,6 +25,7 @@ LOCAL_CFLAGS += \
+         -Wno-unused-function \
+         -Wno-unused-parameter \
+         -Wno-unused-variable \
++        -DLPM_SLEEP_MODE=0 \
+ 
+ LOCAL_SRC_FILES := \
+         src/bt_vendor_brcm.c \
+diff --git a/include/vnd_dreamqltechn.txt b/include/vnd_dreamqltechn.txt
+new file mode 100644
+index 0000000..1ddaa3f
+--- /dev/null
++++ b/include/vnd_dreamqltechn.txt
+@@ -0,0 +1,8 @@
++BLUETOOTH_UART_DEVICE_PORT = "/dev/ttyHS0"
++FW_PATCHFILE_LOCATION = "/vendor/firmware/"
++LPM_IDLE_TIMEOUT_MULTIPLE = 5
++SCO_USE_I2S_INTERFACE = TRUE
++BTVND_DBG = FALSE
++BTHW_DBG = TRUE
++VNDUSERIAL_DBG = FALSE
++UPIO_DBG = FALSE
+-- 
+2.34.1
+
