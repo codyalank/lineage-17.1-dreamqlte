@@ -21,7 +21,7 @@ Unofficial LineageOS 17.1 (Android 10) build for the Samsung Galaxy S8 US Snapdr
 | **Bluetooth** | BCM4361B0 (reports as BCM4347B0 via HCI) |
 | **Wi-Fi** | 802.11 a/b/g/n/ac, dual-band |
 | **NFC** | Yes |
-| **Fingerprint** | Side-mounted |
+| **Fingerprint** | Rear-mounted |
 
 > ⚠️ **SM-G950U only (Snapdragon, US unlocked).** Not compatible with SM-G950F/N/W8 (Exynos).
 
